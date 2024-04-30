@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <ctime>
 
 bool salaryListFormat(std::string name, std::string surname, int salary, std::string date) {
     if (salary >= 0 && name.size() > 0 && surname.size() > 0 && date[2] == ':' && date[5] == ':') {
@@ -15,6 +16,7 @@ bool salaryListFormat(std::string name, std::string surname, int salary, std::st
 
 int main() {
     //20.5.1 salary list write in file
+    /*
     std::fstream file("salary-list.txt", std::ios::app);
     if (file.is_open()) 
     {
@@ -38,6 +40,32 @@ int main() {
     {
         std::cout << "Couldn't open file!" << std::endl;
     }
+    */
+
+    //20.5.2 random input in .txt file
+    /*
+    std::ofstream file("painting.txt");
+    if (file.is_open()) {
+        std::cout << "Open\n";
+        bool correctInput = false;
+        int height, width;
+        do {
+            std::cout << "Input height and width:" << std::endl;
+            std::cin >> height >> width;
+            if (height > 0 && width > 0)
+                correctInput = true;
+        } while (!correctInput);
+
+        std::srand(std::time(nullptr));
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                file << std::rand() % 2;
+            }
+            file << std::endl;
+        }
+        file.close();
+    }
+    */
     
 
 }
