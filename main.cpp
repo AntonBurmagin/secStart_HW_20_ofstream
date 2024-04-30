@@ -67,5 +67,34 @@ int main() {
     }
     */
     
+    //20.5.3 fishing from to file
+    /*
+    std::fstream lake("lake.txt");
+    std::fstream basket("basket.txt", std::ios::app);
+    if (lake.is_open() && basket.is_open()) {
+        std::string fish;
+        while (true) {
+            std::cout << "What kind of fish? (quit to go home)" << std::endl;
+            std::cin >> fish;
+            if (fish == "quit")
+                break;
+            int count = 0;
+            while (!lake.eof()) {
+                std::string lakeFish;
+                lake >> lakeFish;
+                std::cout << lakeFish << std::endl;
+                if (lakeFish == fish) {
+                    basket << fish << std::endl;
+                    count++;
+                }
+            }
+            lake.seekg(0);
+            std::cout << "Have caught " << count << " " << fish << std::endl;
+        }
+        std::cout << "Bon appetite!" << std::endl;
+    }
+    lake.close();
+    basket.close();
+    */
 
 }
